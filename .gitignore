@@ -1,0 +1,4 @@
+bin/
+pkg/
+src/*.com
+src/*.org
