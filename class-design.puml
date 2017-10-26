@@ -1,0 +1,40 @@
+@startuml
+package utils/cs {
+    class Main {
+        + main()
+    }
+
+    class MenuController {
+        - List num_history
+        + select(num, args[])
+    }
+
+    class MenuArgument {
+        + execute (num, args[])
+    }
+
+    interface MenuItem {
+        + execute (MenuArgument args)
+    }
+
+    class DeploymentApp {
+        + execute (MenuArgument args)
+    }
+
+    class CreateContainerPack {
+        + execute (MenuArgument args)
+    }
+
+    class Quit {
+        + execute (MenuArgument args)
+    }
+
+    Main .> MenuController : create
+    MenuController ..> MenuItem : execute
+    MenuItem *. MenuArgument
+    MenuItem <|.. DeploymentApp
+    MenuItem <|.. CreateContainerPack
+    MenuItem <|.. Quit
+
+}
+@enduml
