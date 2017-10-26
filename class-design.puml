@@ -1,31 +1,31 @@
 @startuml
 package utils/cs {
-    class Main {
+    class Main << (S,#FF7700) struct >> {
         + main()
     }
 
-    class MenuController {
+    class MenuController << (S,#FF7700) struct >> {
         - List num_history
         + select(num, args[])
     }
 
-    class MenuArgument {
+    class MenuArgument << (T,#777700) type >> {
         + execute (num, args[])
     }
 
-    interface MenuItem {
+    interface MenuItem << interface >> {
         + execute (MenuArgument args)
     }
 
-    class DeploymentApp {
+    class DeploymentApp << (S,#FF7700) struct >> {
         + execute (MenuArgument args)
     }
 
-    class CreateContainerPack {
+    class CreateContainerPack << (S,#FF7700) struct >> {
         + execute (MenuArgument args)
     }
 
-    class Quit {
+    class Quit << (S,#FF7700) struct >> {
         + execute (MenuArgument args)
     }
 
