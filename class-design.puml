@@ -1,16 +1,17 @@
 @startuml
-package utils/cs {
-    class Main << (S,#FF7700) struct >> {
+package github.com/keita69/cs/main {
+    class cs << (S,#FF7700) struct >> {
         + main()
     }
-
+}
+package github.com/keita69/cs/menu {
     class MenuController << (S,#FF7700) struct >> {
         - List num_history
         + select(num, args[])
     }
 
     class MenuArgument << (T,#777700) type >> {
-        + execute (num, args[])
+        + execute (MenuArgument args)
     }
 
     interface MenuItem << interface >> {
@@ -28,13 +29,13 @@ package utils/cs {
     class Quit << (S,#FF7700) struct >> {
         + execute (MenuArgument args)
     }
+}
 
-    Main .> MenuController : create
+    cs .> MenuController : create
     MenuController ..> MenuItem : execute
     MenuItem *. MenuArgument
     MenuItem <|.. DeploymentApp
     MenuItem <|.. CreateContainerPack
     MenuItem <|.. Quit
 
-}
 @enduml
